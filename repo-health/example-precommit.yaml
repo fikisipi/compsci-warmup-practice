@@ -1,0 +1,41 @@
+default_stages: [pre-commit, pre-merge-commit]
+repos:
+  - repo: local
+    hooks:
+      - id: mypy
+        name: mypy
+        entry: python3 -m mypy visiopy/ notebooks/ --strict-equality
+        language: system
+        pass_filenames: false
+        types: [python]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: "v0.9.6"
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+      - id: ruff-format
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args:
+          [
+            "--baseline",
+            ".secrets.baseline",
+            "--exclude-lines",
+            "postgresql://user:password@postgres/postgres",
+            "--exclude-lines",
+            "amqp://guest:guest@rabbitmq:5672/",
+          ]
+        exclude: package.lock.json
+        stages: [pre-commit, pre-merge-commit, manual]
+  - repo: local
+    hooks:
+      - id: static-analysis
+        name: Static analysis
+        entry: "s"
+        language: python
+        types: [python]
+        require_serial: true
+        verbose: true
