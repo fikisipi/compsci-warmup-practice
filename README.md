@@ -4,6 +4,28 @@
 > This is not really for public or prod use, does not represent my knowledge -- or lack
 thereof! :) ... btw, this scary style can be set with [!CAUTION]
 
+## Zen of Python, Tim Pieters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+
 ### 12 May
 
 * A good set of precommit hooks for Python - [Example yaml](./repo-health/example-precommit.yaml)
@@ -33,6 +55,10 @@ We can encapsulate this into two things:
 * Strategies `S_i`: the contract specifying the input and output of subalgos `A11`, `A12`, `A13`
 * A context `C`: a higher-order function replacing `A` that uses the strategies `S_i`
 to operate on `D`.
+
+
+### Pool
+Prevent massive creation/deletion by preallocating X objects.
 
 ### Modern debugging: log vs metric vs trace
 
@@ -76,6 +102,11 @@ values(set) = all
 - assignable: x: A = B doesn't crash iff A is assignable to B
 - equivalent, consistent with: A and B are eq if A is a subtype of B and B is a subtype of A
 
+#### Security
+1. PKI CA
+2. PKI Cert
+3. Access control
+4. Crypto keys
 
 #### Factories and data transform
 ```py
